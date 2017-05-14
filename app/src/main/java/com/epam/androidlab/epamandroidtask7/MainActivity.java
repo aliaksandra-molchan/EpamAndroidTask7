@@ -1,20 +1,12 @@
 package com.epam.androidlab.epamandroidtask7;
 
-import android.content.res.Configuration;
-import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.graphics.drawable.DrawerArrowDrawable;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-
-import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     private static final String URL = "https://loyl.me/wp-content/uploads/2013/08/loyalty500x500.png";
@@ -51,12 +43,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(itemSelectedListener);
 
-        ActionBarDrawerToggle drawerToggle=new ActionBarDrawerToggle(
-                this,
-                drawerLayout,
-                R.string.drawer_open,
-                R.string.drawer_close);
-
         drawerLayout.addDrawerListener(new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
@@ -66,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getDrawerArrowDrawable().setDirection(DrawerArrowDrawable.ARROW_DIRECTION_START);
                 getSupportActionBar().setTitle(R.string.drawer_close);
             }
 
@@ -80,12 +65,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-
-        //ImageView imageView = (ImageView)findViewById(R.id.imageView);
-        //Picasso.with(this).load(URL).into(imageView);
-        //LinearLayout linearLayout= (LinearLayout) findViewById(R.id.header);
-      //  View view=navigationView.inflateHeaderView(imageView.);
-
-
+        //     LinearLayout headerLayout= (LinearLayout)navigationView.findViewById(R.id.header);
+        //  ImageView imageView = (ImageView)headerLayout.findViewById(R.id.imageView);
+        // Picasso.with(this).load(URL).into(imageView);
     }
 }
