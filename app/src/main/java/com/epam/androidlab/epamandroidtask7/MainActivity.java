@@ -7,9 +7,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String URL = "https://loyl.me/wp-content/uploads/2013/08/loyalty500x500.png";
+    private static final String URL = "https://s.androidinsider.ru/2014/12/1_Material_Design.@750.jpg";
 
     private FirstFragment firstFragment;
     private SecondFragment secondFragment;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 this,
                 drawerLayout,
                 R.string.drawer_open,
-                R.string.drawer_close){
+                R.string.drawer_close) {
 
             @Override
             public void onDrawerClosed(View view) {
@@ -65,8 +68,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        //     LinearLayout headerLayout= (LinearLayout)navigationView.findViewById(R.id.header);
-        //  ImageView imageView = (ImageView)headerLayout.findViewById(R.id.imageView);
-        // Picasso.with(this).load(URL).into(imageView);
+        ImageView image = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView);
+        Picasso.with(this).load(URL).into(image);
     }
 }
